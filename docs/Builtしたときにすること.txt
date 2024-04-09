@@ -1,0 +1,5 @@
+・index.htmlに1行追加
+
+<script type="text/javascript" src="WindowResize.js"></script>
+
+※head内だったらどこでもOK。タグの間に書くとか斜め上のことはやらないでください。
