@@ -25,7 +25,7 @@ public class CamContoroller : MonoBehaviour
         Camera camera = Camera.main;
 
         float sensitiveWheel = 15.0f;
-        float sensitivePinch = 1.0f;
+        float sensitivePinch = 0.2f;
 
         //カメラ倍率によって感度を低くする
         float sensitiveRotate = 2.0f * (camera.fieldOfView / 80f);
@@ -34,7 +34,7 @@ public class CamContoroller : MonoBehaviour
         //PC
         if (Input.touchCount == 0 && Input.GetMouseButton(1))
         {
-            float rotateX = -1 * Input.GetAxis("Mouse X") * sensitiveRotate;
+            float rotateX = Input.GetAxis("Mouse X") * sensitiveRotate;
             float rotateY = Input.GetAxis("Mouse Y") * sensitiveRotate;
             camera.transform.Rotate(rotateY, rotateX, 0.0f);
             //カメラのロール方向を0に設定
@@ -44,8 +44,8 @@ public class CamContoroller : MonoBehaviour
         //スマホ
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            float rotateX = -1 * Input.touches[0].deltaPosition.x / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.02f;
-            float rotateY = Input.touches[0].deltaPosition.y / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.02f;
+            float rotateX = Input.touches[0].deltaPosition.x / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.05f;
+            float rotateY = -1 * Input.touches[0].deltaPosition.y / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.05f;
             camera.transform.Rotate(rotateY, rotateX, 0.0f);
             //カメラのロール方向を0に設定
             camera.transform.eulerAngles = new Vector3(camera.transform.localEulerAngles.x, camera.transform.localEulerAngles.y, 0.0f);
