@@ -7,6 +7,10 @@ using UnityEngine.SocialPlatforms;
 
 public class CamContoroller : MonoBehaviour
 {
+    float BaseDistance = 0;
+    float ChangedDistance = 0;
+    float pinch = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +32,7 @@ public class CamContoroller : MonoBehaviour
 
         //回転移動
         //PC
-        if (Input.GetMouseButton(1))
+        if (Input.touchCount == 0 && Input.GetMouseButton(1))
         {
             float rotateX = -1 * Input.GetAxis("Mouse X") * sensitiveRotate;
             float rotateY = Input.GetAxis("Mouse Y") * sensitiveRotate;
@@ -38,10 +42,10 @@ public class CamContoroller : MonoBehaviour
         }
 
         //スマホ
-        if (Input.touchCount >= 2)
+        if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
         {
-            float rotateX = -1 * Input.touches[0].deltaPosition.x * sensitiveRotate * 0.02f;
-            float rotateY = Input.touches[0].deltaPosition.y * sensitiveRotate * 0.02f;
+            float rotateX = -1 * Input.touches[0].deltaPosition.x / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.02f;
+            float rotateY = Input.touches[0].deltaPosition.y / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.02f;
             camera.transform.Rotate(rotateY, rotateX, 0.0f);
             //カメラのロール方向を0に設定
             camera.transform.eulerAngles = new Vector3(camera.transform.localEulerAngles.x, camera.transform.localEulerAngles.y, 0.0f);
@@ -55,9 +59,6 @@ public class CamContoroller : MonoBehaviour
         //スマホ
         if (Input.touchCount == 2)
         {
-            float BaseDistance = 0;
-            float ChangedDistance = 0;
-
             if (Input.GetTouch(1).phase == TouchPhase.Began)
             {
                 BaseDistance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
@@ -66,9 +67,10 @@ public class CamContoroller : MonoBehaviour
             if (Input.GetTouch(0).phase == TouchPhase.Moved || Input.GetTouch(1).phase == TouchPhase.Moved)
             {
                 ChangedDistance = Vector2.Distance(Input.GetTouch(0).position, Input.GetTouch(1).position);
+                //差分を撮ってBaseDistanceを更新
+                pinch = ChangedDistance - BaseDistance;
+                BaseDistance = ChangedDistance;
             }
-            
-            float pinch = ChangedDistance - BaseDistance;
             view = camera.fieldOfView - (pinch * sensitivePinch);
         }
         camera.fieldOfView = Mathf.Clamp(value : view, min : 10f, max : 70f);
