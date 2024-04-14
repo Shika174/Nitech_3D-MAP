@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms;
 public class CamContoroller : MonoBehaviour
 {
     //視野角調整の変数宣言
-    float fov_A = 60f; float fov_B = 110f;
+    float fov_A = 80f; float fov_B = 130f;
     float aspect_A = 9f / 16f; float aspect_B = 21f / 9f;
     float y_intercept = 0f; float coef = 0f;
     float BaseAspect = 0f; float ChangedAspect = 0f;
@@ -30,7 +30,7 @@ public class CamContoroller : MonoBehaviour
         y_intercept = ((fov_A * aspect_A) - (fov_B * aspect_B)) / (aspect_A - aspect_B);
         coef = aspect_A * (fov_A - y_intercept);
         view_base = (coef / BaseAspect) + y_intercept;
-        view_max = view_base + 10f;
+        view_max = view_base + 20f;
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class CamContoroller : MonoBehaviour
             y_intercept = ((fov_A * aspect_A) - (fov_B * aspect_B)) / (aspect_A - aspect_B);
             coef = aspect_A * (fov_A - y_intercept);
             view_base = (coef / ChangedAspect) + y_intercept;
-            view_max = view_base + 10f;
+            view_max = view_base + 20f;
             BaseAspect = ChangedAspect;
         }
         
