@@ -21,6 +21,6 @@ public class TextContoroller : MonoBehaviour
     {
         Camera camera = Camera.main;
         DebugText.text = "Width = " + Screen.width + "\nfov = " + camera.fieldOfView;
-        //DebugTextObject.transform.localPosition = new Vector3((Screen.width / -2)  + 100, (Screen.height / 2) - 25, 0);
+        DebugTextObject.transform.localPosition = new Vector3((Screen.width / -2)  + 100, (Screen.height / 2) - 25, 0);
     }
 }
