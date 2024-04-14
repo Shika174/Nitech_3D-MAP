@@ -17,13 +17,13 @@ function resize() {
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
 
-    var aspectWindowHeight = windowWidth / canvasAspectRatio;
-    if(aspectWindowHeight > windowHeight) {
-        windowWidth = windowHeight * canvasAspectRatio;
-    }
-    else {
-        windowHeight = aspectWindowHeight;
-    }
+    //var aspectWindowHeight = windowWidth / canvasAspectRatio;
+    //if(aspectWindowHeight > windowHeight) {
+    //    windowWidth = windowHeight * canvasAspectRatio;
+    //}
+    //else {
+    //    windowHeight = aspectWindowHeight;
+    //}
     canvas.style.width = windowWidth + 'px'
     canvas.style.height = windowHeight + 'px'
 }
