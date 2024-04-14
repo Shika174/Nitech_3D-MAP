@@ -49,7 +49,10 @@ public class ModelContoroller : MonoBehaviour
                 float Move_Y = (Input.touches[0].deltaPosition.y + Input.touches[1].deltaPosition.y) / Input.touches[0].deltaTime * Time.deltaTime * Move_sensitive * 0.05f;
                 Vector3 Move = (cam_right * Move_X) + (cam_up * Move_Y);
                 //移動
-                transform.position += Move;
+                if (Move.magnitude < 100)
+                {
+                    transform.position += Move;
+                }
             }
         }
     }

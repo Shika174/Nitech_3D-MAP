@@ -7,17 +7,31 @@ using UnityEngine.SocialPlatforms;
 
 public class CamContoroller : MonoBehaviour
 {
+    //視野角調整の変数宣言
+    float fov_A = 60f; float fov_B = 110f;
+    float aspect_A = 9f / 16f; float aspect_B = 21f / 9f;
+    float y_intercept = 0f; float coef = 0f;
+    float BaseAspect = 0f; float ChangedAspect = 0f;
+
+    //変数宣言
     float BaseDistance = 0;
     float ChangedDistance = 0;
     float pinch = 0;
+    float view_base = 60f;
+    float view_max = 110f;
+    float view_delta = 0f;
+    float view_diff = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //起動時の画面比率を取得
+        BaseAspect = (float)Screen.height / (float)Screen.width;
+        y_intercept = ((fov_A * aspect_A) - (fov_B * aspect_B)) / (aspect_A - aspect_B);
+        coef = aspect_A * (fov_A - y_intercept);
+        view_base = (coef / BaseAspect) + y_intercept;
+        view_max = view_base + 10f;
     }
-
-
 
     // Update is called once per frame
     void Update()
@@ -52,10 +66,29 @@ public class CamContoroller : MonoBehaviour
         }
 
         //拡大・縮小
+        //画面比率が変更されたとき、視野角調整
+        ChangedAspect = (float)Screen.height / (float)Screen.width;
+        if (BaseAspect != ChangedAspect)
+        {
+            view_diff = camera.fieldOfView - view_base;
+            y_intercept = ((fov_A * aspect_A) - (fov_B * aspect_B)) / (aspect_A - aspect_B);
+            coef = aspect_A * (fov_A - y_intercept);
+            view_base = (coef / ChangedAspect) + y_intercept;
+            view_max = view_base + 10f;
+            BaseAspect = ChangedAspect;
+        }
+        
         //PC
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
-        float view = camera.fieldOfView - (scroll * sensitiveWheel);
-
+        if (Input.touchCount == 0)
+        {
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            view_delta += -1f * scroll * sensitiveWheel;
+            if (view_base + view_delta >= view_max || view_base + view_delta <= 10f)
+            {
+                view_delta -= -1f * scroll * sensitiveWheel;
+            }
+        }
+        
         //スマホ
         if (Input.touchCount == 2)
         {
@@ -71,8 +104,17 @@ public class CamContoroller : MonoBehaviour
                 pinch = ChangedDistance - BaseDistance;
                 BaseDistance = ChangedDistance;
             }
-            view = camera.fieldOfView - (pinch * sensitivePinch);
+            view_delta += -1f * pinch * sensitivePinch;
         }
-        camera.fieldOfView = Mathf.Clamp(value : view, min : 10f, max : 70f);
+
+        //視野角設定
+        camera.fieldOfView = Mathf.Clamp(value : view_base + view_delta, min : 10f, max : view_max);
+
+        //debugゾーン
+        Debug.Log("y_intercept = " + y_intercept);
+        Debug.Log("coef = " + coef);
+        Debug.Log("view_base = " + view_base);
+        Debug.Log("view_delta = " + view_delta);
+        Debug.Log("aspect = " + ((float)Screen.height / (float)Screen.width));
     }
 }
