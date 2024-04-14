@@ -12,10 +12,11 @@ document.addEventListener('DOMContentLoaded', function(event){
 function resize() {
     var width = 1920;
     var height = 1080;
-    canvasAspectRatio = width / height;
+    //canvasAspectRatio = width / height;
 
     var windowWidth = window.innerWidth;
     var windowHeight = window.innerHeight;
+    canvasAspectRatio = windowWidth / windowHeight;
 
     //var aspectWindowHeight = windowWidth / canvasAspectRatio;
     //if(aspectWindowHeight > windowHeight) {
