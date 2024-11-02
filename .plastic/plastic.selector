@@ -1,0 +1,4 @@
+repository "3D MAP@Shika0000@cloud"
+  path "/"
+    br "/main"
+    co "/main"

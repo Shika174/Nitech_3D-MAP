@@ -20,7 +20,7 @@ public class TextContoroller : MonoBehaviour
     void Update()
     {
         Camera camera = Camera.main;
-        DebugText.text = "Width = " + Screen.width + "\nfov = " + camera.fieldOfView;
+        DebugText.text = "Width = " + Screen.width + "\nfov = " + camera.fieldOfView + "\naltitude = " + camera.transform.position.y;
         DebugTextObject.transform.localPosition = new Vector3((Screen.width / -2)  + 100, (Screen.height / 2) - 25, 0);
     }
 }
