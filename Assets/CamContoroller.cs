@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms;
 public class CamContoroller : MonoBehaviour
 {
     //視野角調整の変数宣言
-    float fov_A = 60f; float fov_B = 130f;  //視野角の最小値と最大値。16:9と9:21の比率で設定
+    float fov_A = 60f; float fov_B = 100f;  //視野角の最小値と最大値。16:9と9:21の比率で設定
     float aspect_A = 9f / 16f; float aspect_B = 21f / 9f;   //画面比率の設定。16:9と9:21の比率で設定
     float y_intercept = 0f; float coef = 0f;
     float BaseAspect = 0f; float ChangedAspect = 0f;
@@ -46,9 +46,7 @@ public class CamContoroller : MonoBehaviour
 
         float sensitiveWheel = 30.0f;
         float sensitivePinch = 0.4f;
-
-        //カメラ倍率によって感度を低くする
-        float sensitiveRotate = 2.0f * (camera.fieldOfView / 80f);
+        float sensitiveRotate = 2.0f;
 
         //回転移動
         //PC

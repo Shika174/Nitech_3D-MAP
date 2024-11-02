@@ -67,6 +67,7 @@
     <Compile Include="Assets\TextContoroller.cs" />
     <Compile Include="Assets\TagContoroller.cs" />
     <Compile Include="Assets\CamContoroller.cs" />
+    <Compile Include="Assets\ButtunResizer.cs" />
     <Compile Include="Assets\ModelContoroller.cs" />
     <Compile Include="Assets\ImageController.cs" />
     <Compile Include="Assets\CamResize.cs" />

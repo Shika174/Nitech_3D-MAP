@@ -14,9 +14,8 @@ public class ModelContoroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //カメラの倍率によって感度を変更
         Camera camera = Camera.main;
-        float Move_sensitive = 10.0f * (camera.fieldOfView / 80f);
+        float Move_sensitive = 10.0f;
 
         //pc操作
         if (Input.GetMouseButton(0) && Input.touchCount == 0)
