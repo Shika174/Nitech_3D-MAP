@@ -13,10 +13,10 @@ public class ButtunResizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //画面の縦の大きさを取得
-        float screenHeight = Screen.height;
-        //縦の大きさを基準にボタンの大きさを変更
+        //画面の横の大きさを取得
+        float screenWidth = Screen.width;
+        //横の大きさを基準にボタンの大きさを変更
         RectTransform rectTransform = GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(screenHeight / 20, screenHeight / 20);
+        rectTransform.sizeDelta = new Vector2(screenWidth / 10, screenWidth / 10);
     }
 }

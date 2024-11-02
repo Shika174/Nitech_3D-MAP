@@ -15,7 +15,8 @@ public class ModelContoroller : MonoBehaviour
     void Update()
     {
         Camera camera = Camera.main;
-        float Move_sensitive = 10.0f;
+        //画面の縦横比に合わせて感度を変更
+        float Move_sensitive = 10.0f * ((float)Screen.width / (float)Screen.height) * (16 / 9);
 
         //pc操作
         if (Input.GetMouseButton(0) && Input.touchCount == 0)

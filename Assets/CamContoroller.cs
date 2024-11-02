@@ -8,7 +8,7 @@ using UnityEngine.SocialPlatforms;
 public class CamContoroller : MonoBehaviour
 {
     //視野角調整の変数宣言
-    float fov_A = 60f; float fov_B = 100f;  //視野角の最小値と最大値。16:9と9:21の比率で設定
+    float fov_A = 60f; float fov_B = 90f;  //視野角の最小値と最大値。16:9と9:21の比率で設定
     float aspect_A = 9f / 16f; float aspect_B = 21f / 9f;   //画面比率の設定。16:9と9:21の比率で設定
     float y_intercept = 0f; float coef = 0f;
     float BaseAspect = 0f; float ChangedAspect = 0f;
@@ -22,6 +22,7 @@ public class CamContoroller : MonoBehaviour
     float view_delta = 0f;
     float view_diff = 0f;
     float groundAltitude = 90f;
+    float topAltitude = 500f;
 
     // Start is called before the first frame update
     void Start()
@@ -91,14 +92,22 @@ public class CamContoroller : MonoBehaviour
         {
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             //カメラの前後移動
-            //地面にめり込まないように移動を制限
-            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel > groundAltitude)
+            //地面にめり込まない&離れすぎないように移動を制限
+            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch > groundAltitude)
             {
                 camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
             }
             else
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, groundAltitude, camera.transform.position.z);
+            }
+            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch < topAltitude)
+            {
+                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
+            }
+            else
+            {
+                camera.transform.position = new Vector3(camera.transform.position.x, topAltitude, camera.transform.position.z);
             }
         }
 
@@ -119,7 +128,7 @@ public class CamContoroller : MonoBehaviour
                 BaseDistance = ChangedDistance;
             }
             //カメラの前後移動
-            //地面にめり込まないように移動を制限
+            //地面にめり込まない&離れすぎないように移動を制限
             if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch > groundAltitude)
             {
                 camera.transform.position += camera.transform.forward * pinch * sensitivePinch;
@@ -127,6 +136,14 @@ public class CamContoroller : MonoBehaviour
             else
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, groundAltitude, camera.transform.position.z);
+            }
+            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch < topAltitude)
+            {
+                camera.transform.position += camera.transform.forward * pinch * sensitivePinch;
+            }
+            else
+            {
+                camera.transform.position = new Vector3(camera.transform.position.x, topAltitude, camera.transform.position.z);
             }
         }
 
