@@ -1,59 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
-public class ModelContoroller : MonoBehaviour
+public class ModelController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float lastTapTime = 0f;
+    private float doubleTapDelay = 0.3f; // ダブルタップと認識する時間間隔
+    private Vector3 targetPosition;
 
-    // Update is called once per frame
     void Update()
     {
         Camera camera = Camera.main;
-        //画面の縦横比に合わせて感度を変更
-        float Move_sensitive = 10.0f * ((float)Screen.width / (float)Screen.height) * (16 / 9);
+        float Move_sensitive = 10.0f * ((float)Screen.width / (float)Screen.height);
 
-        //pc操作
+        // PC操作
         if (Input.GetMouseButton(0) && Input.touchCount == 0)
         {
-            //カメラ上方向と右方向のベクトルを正規化して取得
-            //画面左下が原点
             Vector3 cam_up = Vector3.Scale(camera.transform.up.normalized, new Vector3(1.0f, 0.0f, 1.0f));
             Vector3 cam_right = Vector3.Scale(camera.transform.right.normalized, new Vector3(1.0f, 0.0f, 1.0f));
 
-            //移動量を設定
             float Move_X = Input.GetAxis("Mouse X") * Move_sensitive;
             float Move_Y = Input.GetAxis("Mouse Y") * Move_sensitive;
             Vector3 Move = (cam_right * Move_X) + (cam_up * Move_Y);
 
-            //移動
             transform.position += Move;
         }
 
-        //スマホ操作
-        if (Input.touchCount >= 2)
+        // スマホ操作
+        if (Input.touchCount == 1)
         {
-            //カメラ上方向と右方向のベクトルを正規化して取得
-            //画面左下が原点
-            Vector3 cam_up = -1 * Vector3.Scale(camera.transform.up.normalized, new Vector3(1.0f, 0.0f, 1.0f));
-            Vector3 cam_right = -1 * Vector3.Scale(camera.transform.right.normalized, new Vector3(1.0f, 0.0f, 1.0f));
+            Touch touch = Input.GetTouch(0);
 
-            //移動量を設定
-            if (Input.touches[1].phase == TouchPhase.Moved)
+            if (touch.phase == TouchPhase.Began)
             {
-                float Move_X = (Input.touches[0].deltaPosition.x + Input.touches[1].deltaPosition.x) / Input.touches[0].deltaTime * Time.deltaTime * Move_sensitive * 0.05f;
-                float Move_Y = (Input.touches[0].deltaPosition.y + Input.touches[1].deltaPosition.y) / Input.touches[0].deltaTime * Time.deltaTime * Move_sensitive * 0.05f;
-                Vector3 Move = (cam_right * Move_X) + (cam_up * Move_Y);
-                //移動
-                if (Move.magnitude < 100)
+                if (Time.time - lastTapTime < doubleTapDelay)
                 {
-                    transform.position += Move;
+                    // ダブルタップを検出
+                    Ray ray = camera.ScreenPointToRay(touch.position);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        targetPosition = hit.point;
+                        transform.position = targetPosition;
+                    }
                 }
+                lastTapTime = Time.time;
             }
         }
     }
