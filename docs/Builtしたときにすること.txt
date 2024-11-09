@@ -3,3 +3,6 @@
 <script type="text/javascript" src="WindowResize.js"></script>
 
 ※head内だったらどこでもOK。タグの間に書くとか斜め上のことはやらないでください。
+
+利用者の通信量を削減するため、gzip形式でビルドしています。
+gzip形式を正しく扱えるようにするために、.htaccessファイル2いい感じに活気混んでいます。

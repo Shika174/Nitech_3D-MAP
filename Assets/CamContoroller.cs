@@ -93,7 +93,7 @@ public class CamContoroller : MonoBehaviour
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             //カメラの前後移動
             //地面にめり込まない&離れすぎないように移動を制限
-            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch > groundAltitude)
+            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel > groundAltitude)
             {
                 camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
             }
@@ -101,7 +101,7 @@ public class CamContoroller : MonoBehaviour
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, groundAltitude, camera.transform.position.z);
             }
-            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch < topAltitude)
+            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel < topAltitude)
             {
                 camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
             }
@@ -183,10 +183,12 @@ public class CamContoroller : MonoBehaviour
         */
 
         //debugゾーン
+        /*
         Debug.Log("y_intercept = " + y_intercept);
         Debug.Log("coef = " + coef);
         Debug.Log("view_base = " + view_base);
         Debug.Log("view_delta = " + view_delta);
         Debug.Log("aspect = " + ((float)Screen.height / (float)Screen.width));
+        */
     }
 }
