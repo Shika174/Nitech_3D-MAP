@@ -33,12 +33,16 @@ public class TextContoroller : MonoBehaviour
             frameCount = 0;
         }
         frameCount++;
+        
     }
     public void ReceiveLocation(string location)
     {
         string[] coords = location.Split(',');
         float latitude = float.Parse(coords[0]); // 緯度
         float longitude = float.Parse(coords[1]); //経度
+
+        Text text = DebugTextObject.GetComponent<Text>();
+        text.text = "緯度: " + latitude + "\n経度: " + longitude;
     }
 
 }
