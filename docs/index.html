@@ -60,22 +60,6 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-
-          // 位置情報を取得してUnityに送信する関数
-          function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition((position) => {
-                        var coords = position.coords.latitude + ',' + position.coords.longitude;
-                        unityInstance.SendMessage('PositionTracer', 'ReceiveLocation', coords);
-                    });
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            }
-
-          // ページ読み込み時に位置情報を取得
-          window.onload = getLocation;
-
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };

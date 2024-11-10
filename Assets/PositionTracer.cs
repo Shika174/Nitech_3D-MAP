@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class PositionTracer : MonoBehaviour
@@ -20,10 +21,14 @@ public class PositionTracer : MonoBehaviour
     float pos_x;
     float pos_z;
 
+    [DllImport("__Internal")]
+    private static extern void GetCurrentPosition();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // JavaScriptのGeolocation APIを呼び出す
+        GetCurrentPosition();
     }
 
     // Update is called once per frame
@@ -39,10 +44,14 @@ public class PositionTracer : MonoBehaviour
         float latitude = float.Parse(coords[0]); // 緯度
         float longitude = float.Parse(coords[1]); //経度
 
-        
+        //座標変換を行い、オブジェクトを移動
+        pos_x = map_x_max - ( (map_x_max - map_x_min) / (nit_lat_max - nit_lat_min) ) * (latitude - nit_lat_min);
+        pos_z = map_z_min + ( (map_z_max - map_z_min) / (nit_lon_max - nit_lon_min) ) * (longitude - nit_lon_min);
+        transform.position = new Vector3(pos_x, transform.position.y, pos_z);
 
         // 位置情報を使ってオブジェクトを動かす
         // 校外の場合初期位置に固定
+        /*
         if (latitude < nit_lat_min || latitude > nit_lat_max || longitude < nit_lon_min || longitude > nit_lon_max)
         {
             Debug.Log("Out of range");
@@ -57,5 +66,6 @@ public class PositionTracer : MonoBehaviour
             pos_z = map_z_min + ( (map_z_max - map_z_min) / (nit_lon_max - nit_lon_min) ) * (longitude - nit_lon_min);
             transform.position = new Vector3(pos_x, transform.position.y, pos_z);
         }
+        */
     }
 }
