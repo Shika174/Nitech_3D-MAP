@@ -21,6 +21,9 @@ public class PositionTracer : MonoBehaviour
     float pos_x;
     float pos_z;
 
+    // フレームカウント
+    int frameCount = 0;
+
     [DllImport("__Internal")]
     private static extern void GetCurrentPosition();
 
@@ -34,7 +37,14 @@ public class PositionTracer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // 600フレームごとに現在地を取得する
+        if (frameCount == 600)
+        {
+            // JavaScriptの呼び出し
+            GetCurrentPosition(); 
+            frameCount = 0;
+        }
+        frameCount++;
     }
 
     // JavaScriptから位置情報を受け取るメソッド
