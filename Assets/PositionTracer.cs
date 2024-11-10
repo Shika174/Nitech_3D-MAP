@@ -46,7 +46,7 @@ public class PositionTracer : MonoBehaviour
         if (latitude < nit_lat_min || latitude > nit_lat_max || longitude < nit_lon_min || longitude > nit_lon_max)
         {
             Debug.Log("Out of range");
-            transform.position = new Vector3(0, 0, 0);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             return;
         }
         else
