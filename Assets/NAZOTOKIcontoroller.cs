@@ -145,7 +145,7 @@ public class NAZOTOKIcontoroller : MonoBehaviour
 
         // 特定の建物のクリック判定
             // PCのマウスクリックを検出
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Input.touchCount == 0)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             ProcessRaycast(ray);
