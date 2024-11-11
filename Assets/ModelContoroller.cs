@@ -26,7 +26,31 @@ public class ModelController : MonoBehaviour
             float Move_Y = Input.GetAxis("Mouse Y") * Move_sensitive;
             Vector3 Move = (cam_right * Move_X) + (cam_up * Move_Y);
 
-            transform.position += Move;
+            // 範囲内なら移動
+            if (transform.position.x + Move.x > -300 && transform.position.x + Move.x < 800 && transform.position.z + Move.z > -600 && transform.position.z + Move.z < 400) 
+            {
+                transform.position += Move;
+            }
+            else
+            {
+                if (transform.position.x + Move.x < -300)
+                {
+                    transform.position = new Vector3(-300, transform.position.y, transform.position.z);
+                }
+                if (transform.position.x + Move.x > 800)
+                {
+                    transform.position = new Vector3(800, transform.position.y, transform.position.z);
+                }
+                if (transform.position.z + Move.z < -600)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y, -600);
+                }
+                if (transform.position.z + Move.z > 400)
+                {
+                    transform.position = new Vector3(transform.position.x, transform.position.y, 400);
+                }
+            }
+            
         }
 
         //PC操作
@@ -37,9 +61,33 @@ public class ModelController : MonoBehaviour
                 Vector3 cam_up = Vector3.Scale(camera.transform.up.normalized, new Vector3(1.0f, 0.0f, 1.0f));
                 Debug.Log(cam_up * camera.transform.position.y * (1/6));
                 Debug.Log(camera.transform.position.y);
-                //前方に移動
+                // 範囲内なら前方に移動
+                if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
+                {
+                    targetPosition = transform.position + cam_up * -300f;
+                    isMoving = true;
+                }
+                else
+                {
+                    if (transform.position.z < -600)
+                    {
+                        transform.position = new Vector3(transform.position.x, transform.position.y, -600);
+                    }
+                    if (transform.position.z > 400)
+                    {
+                        transform.position = new Vector3(transform.position.x, transform.position.y, 400);
+                    }
+                    if (transform.position.x < -300)
+                    {
+                        transform.position = new Vector3(-300, transform.position.y, transform.position.z);
+                    }
+                    if (transform.position.x > 800)
+                    {
+                        transform.position = new Vector3(800, transform.position.y, transform.position.z);
+                    }
                 targetPosition = transform.position + cam_up * -100f;
                 isMoving = true;
+                }
             }
             lastClickTime = Time.time;
         }
@@ -55,9 +103,33 @@ public class ModelController : MonoBehaviour
                 {
                     Vector3 cam_up = Vector3.Scale(camera.transform.up.normalized, new Vector3(1.0f, 0.0f, 1.0f));
                     
-                    //前方に移動
+                    // 範囲内なら前方に移動
+                if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
+                {
+                    targetPosition = transform.position + cam_up * -300f;
+                    isMoving = true;
+                }
+                else
+                {
+                    if (transform.position.z < -600)
+                    {
+                        transform.position = new Vector3(transform.position.x, transform.position.y, -600);
+                    }
+                    if (transform.position.z > 400)
+                    {
+                        transform.position = new Vector3(transform.position.x, transform.position.y, 400);
+                    }
+                    if (transform.position.x < -300)
+                    {
+                        transform.position = new Vector3(-300, transform.position.y, transform.position.z);
+                    }
+                    if (transform.position.x > 800)
+                    {
+                        transform.position = new Vector3(800, transform.position.y, transform.position.z);
+                    }
                     targetPosition = transform.position + cam_up * -100f;
                     isMoving = true;
+                    }
                 }
                 lastTapTime = Time.time;
             }

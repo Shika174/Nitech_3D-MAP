@@ -19,7 +19,10 @@ public class TextContoroller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Text text = DebugTextObject.GetComponent<Text>();
+        text.text = "Ready";
         GetCurrentPosition();
+        
     }
 
     // Update is called once per frame
