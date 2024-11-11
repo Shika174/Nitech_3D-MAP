@@ -6,7 +6,7 @@ mergeInto(LibraryManager.library, {
             var longitude = position.coords.longitude;
             var location = latitude + "," + longitude;
             console.log("位置情報を取得しました: " + location);
-            SendMessage('PositionTracer', 'ReceiveLocation', location);
+            SendMessage('UserPosition', 'ReceiveLocation', location);
         }, function(error) {
             console.error("位置情報の取得に失敗しました: " + error.message);
         });
