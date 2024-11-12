@@ -17,6 +17,6 @@ public class ButtunResizer : MonoBehaviour
         float screenWidth = Screen.width;
         //横の大きさを基準にボタンの大きさを変更
         RectTransform rectTransform = GetComponent<RectTransform>();
-        rectTransform.sizeDelta = new Vector2(screenWidth / 5, screenWidth / 5);
+        rectTransform.sizeDelta = new Vector2(screenWidth / 10, screenWidth / 10);
     }
 }
