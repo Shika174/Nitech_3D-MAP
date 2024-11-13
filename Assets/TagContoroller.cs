@@ -37,7 +37,15 @@ public class TagContoroller : MonoBehaviour
 
     void OnMouseDown()
     {
-        // オブジェクトがクリックされたときにUI Imageを表示
-        messageImage.gameObject.SetActive(true);
+        // 画像がアタッチされているか
+        if (messageImage == null)
+        {
+            return;
+        }
+        else
+        {
+            // オブジェクトがクリックされたときにUI Imageを表示
+            messageImage.gameObject.SetActive(true);
+        }
     }
 }

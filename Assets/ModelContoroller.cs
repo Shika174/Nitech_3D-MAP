@@ -10,11 +10,12 @@ public class ModelController : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
     private float moveSpeed = 5f; // 移動速度
+    private float leap = 300f; // 移動量
 
     void Update()
     {
         Camera camera = Camera.main;
-        float Move_sensitive = 10.0f * ((float)Screen.width / (float)Screen.height);
+        float Move_sensitive = -10.0f * ((float)Screen.width / (float)Screen.height);
 
         // PC操作
         if (Input.GetMouseButton(0) && Input.touchCount == 0)
@@ -64,7 +65,7 @@ public class ModelController : MonoBehaviour
                 // 範囲内なら前方に移動
                 if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
                 {
-                    targetPosition = transform.position + cam_up * -300f;
+                    targetPosition = transform.position + cam_up * leap;
                     isMoving = true;
                 }
                 else
@@ -85,7 +86,7 @@ public class ModelController : MonoBehaviour
                     {
                         transform.position = new Vector3(800, transform.position.y, transform.position.z);
                     }
-                targetPosition = transform.position + cam_up * -100f;
+                targetPosition = transform.position + cam_up * leap;
                 isMoving = true;
                 }
             }
@@ -106,7 +107,7 @@ public class ModelController : MonoBehaviour
                     // 範囲内なら前方に移動
                 if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
                 {
-                    targetPosition = transform.position + cam_up * -300f;
+                    targetPosition = transform.position + cam_up * leap;
                     isMoving = true;
                 }
                 else
@@ -127,7 +128,7 @@ public class ModelController : MonoBehaviour
                     {
                         transform.position = new Vector3(800, transform.position.y, transform.position.z);
                     }
-                    targetPosition = transform.position + cam_up * -100f;
+                    targetPosition = transform.position + cam_up * leap;
                     isMoving = true;
                     }
                 }

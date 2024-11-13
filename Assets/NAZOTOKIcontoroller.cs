@@ -206,6 +206,40 @@ public class NAZOTOKIcontoroller : MonoBehaviour
                 countB = 0;
                 repeatCountB = 0;
             }
+
+            // クリックされた建物の名前を表示
+            if (hit.collider == targetColliderA1)
+            {
+                Debug.Log("52号館(1)");
+            }
+            else if (hit.collider == targetColliderA2)
+            {
+                Debug.Log("52号館(2)");
+            }
+            else if (hit.collider == targetColliderA3)
+            {
+                Debug.Log("12号館");
+            }
+            else if (hit.collider == targetColliderA4)
+            {
+                Debug.Log("体育館");
+            }
+            else if (hit.collider == targetColliderB1)
+            {
+                Debug.Log("4号館");
+            }
+            else if (hit.collider == targetColliderB2)
+            {
+                Debug.Log("19号館");
+            }
+            else if (hit.collider == targetColliderB3)
+            {
+                Debug.Log("23号館(1)");
+            }
+            else if (hit.collider == targetColliderB4)
+            {
+                Debug.Log("23号館(2)");
+            }
         }
     }
 }
