@@ -72,6 +72,7 @@
     <Compile Include="Assets\MouikkaiController1.cs" />
     <Compile Include="Assets\ModelContoroller.cs" />
     <Compile Include="Assets\PositionTracer.cs" />
+    <Compile Include="Assets\InfoOpenContoroller.cs" />
     <Compile Include="Assets\ImageController.cs" />
     <Compile Include="Assets\CamResize.cs" />
   </ItemGroup>
