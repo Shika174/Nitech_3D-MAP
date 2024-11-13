@@ -65,6 +65,12 @@ public class CamContoroller : MonoBehaviour
         {
             float rotateX = Input.touches[0].deltaPosition.x / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.05f;
             float rotateY = -1 * Input.touches[0].deltaPosition.y / Input.touches[0].deltaTime * Time.deltaTime * sensitiveRotate * 0.05f;
+            // 2本指操作時のぶっ飛びを軽減
+            if (Math.Abs(rotateX) > 100 || Math.Abs(rotateY) > 100)
+            {
+                rotateX = 0;
+                rotateY = 0;
+            }
             camera.transform.Rotate(rotateY, rotateX, 0.0f);
             //カメラのロール方向を0に設定
             camera.transform.eulerAngles = new Vector3(camera.transform.localEulerAngles.x, camera.transform.localEulerAngles.y, 0.0f);
