@@ -171,11 +171,11 @@ public class NAZOTOKIcontoroller : MonoBehaviour
         {
             // クリックされた建物が特定の建物か判定
             // 順番の判定も行う
-            if (hit.collider == targetColliderA1 || hit.collider == targetColliderA2)
+            if (hit.collider == targetColliderA3)
             {
                 countA = 1;
             }
-            else if (hit.collider == targetColliderA3 && countA == 1)
+            else if (hit.collider == targetColliderA1 || hit.collider == targetColliderA2 && countA == 1)
             {
                 countA++;
             }
