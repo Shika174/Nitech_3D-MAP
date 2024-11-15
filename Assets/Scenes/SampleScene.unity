@@ -685,6 +685,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 428855593}
+  URLButton: {fileID: 1520147640}
+  url: https://www.koudaisai.com/project/vr-coaster/
 --- !u!114 &85152977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1084,6 +1086,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 520190136}
+  URLButton: {fileID: 2120115910}
+  url: https://www.koudaisai.com/project/booth/
 --- !u!114 &151592413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,7 +1177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/gakuseiboshu/
 --- !u!114 &195564579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,6 +1727,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 48308902}
+  URLButton: {fileID: 1513498913}
+  url: https://www.koudaisai.com/project/haunted-house/
 --- !u!114 &461438624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1946,7 +1951,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/laboratory-tour/
 --- !u!114 &544650500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,6 +2087,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 919094151}
+  URLButton: {fileID: 1807000902}
+  url: https://www.koudaisai.com/project/vs-dealer/
 --- !u!114 &607315307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2269,6 +2275,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 1460519798}
+  URLButton: {fileID: 1871696818}
+  url: https://www.koudaisai.com/project/mogi1/
 --- !u!114 &716162772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2856,7 +2864,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/kids-park/
 --- !u!114 &829757454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4141,6 +4148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 1342878925}
+  URLButton: {fileID: 195564579}
+  url: https://www.koudaisai.com/project/gakuseiboshu/
 --- !u!114 &1268710773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4919,6 +4928,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 1144773246}
+  URLButton: {fileID: 0}
+  url: https://www.koudaisai.com/
 --- !u!222 &1454048789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5319,6 +5330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 439647014}
+  URLButton: {fileID: 0}
+  url: https://www.koudaisai.com/
 --- !u!222 &1501995928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5401,6 +5414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 1383171100}
+  URLButton: {fileID: 829757454}
+  url: https://www.koudaisai.com/project/kids-park/
 --- !u!114 &1503222774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5490,7 +5505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/haunted-house/
 --- !u!114 &1513498913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5624,7 +5638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/vr-coaster/
 --- !u!114 &1520147640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5986,7 +5999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/vr-coaster/
 --- !u!114 &1716629303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6311,7 +6323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/vs-dealer/
 --- !u!114 &1807000902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6741,6 +6752,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.7
   closeButton: {fileID: 814749817}
+  URLButton: {fileID: 0}
+  url: https://www.koudaisai.com/
 --- !u!114 &1862886194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6850,7 +6863,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/mogiten-pr/
 --- !u!114 &1871696818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7131,6 +7143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 1633597412}
+  URLButton: {fileID: 1716629303}
+  url: https://www.koudaisai.com/project/room-riddles/
 --- !u!114 &1937122747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7564,7 +7578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f051c1969643fe44b1ad06878af5de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: https://www.koudaisai.com/project/booth/
 --- !u!114 &2120115910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7850,6 +7863,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marginRate: 0.8
   closeButton: {fileID: 1344277533}
+  URLButton: {fileID: 544650500}
+  url: https://www.koudaisai.com/project/laboratory-tour/
 --- !u!114 &2147164882
 MonoBehaviour:
   m_ObjectHideFlags: 0

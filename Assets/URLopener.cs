@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class URLopener : MonoBehaviour
 {
-    public string url = "https://www.koudaisai.com/";//""の中には開きたいWebページのURLを入力します
+    
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,5 @@ public class URLopener : MonoBehaviour
         
     }
 
-    public void onClick()
-    {
-        Application.OpenURL(url);
-    }
+    
 }
