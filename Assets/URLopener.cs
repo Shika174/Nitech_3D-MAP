@@ -25,7 +25,7 @@ public class URLopener : MonoBehaviour
         rect.anchorMin = new Vector2(0.5f, 0);
         rect.anchorMax = new Vector2(0.5f, 0);
         rect.pivot = new Vector2(0.5f, 0);
-        rect.anchoredPosition = new Vector2(0, -25);
+        rect.anchoredPosition = new Vector2(0, -50);
     }
 
     
