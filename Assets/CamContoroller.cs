@@ -47,7 +47,8 @@ public class CamContoroller : MonoBehaviour
 
         float sensitiveWheel = 30.0f;
         float sensitivePinch = 0.4f;
-        float sensitiveRotate = 2.0f;
+        //下を向いているときの回転感度を下げる
+        float sensitiveRotate = 2.0f *(95 - camera.transform.localEulerAngles.x) / 95;
 
         //回転移動
         //PC

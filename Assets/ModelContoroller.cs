@@ -65,6 +65,7 @@ public class ModelController : MonoBehaviour
                 // 範囲内なら前方に移動
                 if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
                 {
+                    isMoving = false;
                     targetPosition = transform.position + cam_up * leap;
                     isMoving = true;
                 }
@@ -107,6 +108,7 @@ public class ModelController : MonoBehaviour
                     // 範囲内なら前方に移動
                 if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
                 {
+                    isMoving = false;
                     targetPosition = transform.position + cam_up * leap;
                     isMoving = true;
                 }
@@ -143,7 +145,8 @@ public class ModelController : MonoBehaviour
             transform.position = Vector3.Lerp(transform.position, targetPosition, step);
 
             // 目標位置に到達したかどうかを確認
-            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
+            
+            if (Vector3.Distance(transform.position, targetPosition) < 0.5f)
             {
                 transform.position = targetPosition;
                 isMoving = false;

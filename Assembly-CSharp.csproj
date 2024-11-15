@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TextContoroller.cs" />
+    <Compile Include="Assets\URLopener.cs" />
     <Compile Include="Assets\NAZOTOKIcontoroller.cs" />
     <Compile Include="Assets\TagContoroller.cs" />
     <Compile Include="Assets\CamContoroller.cs" />
