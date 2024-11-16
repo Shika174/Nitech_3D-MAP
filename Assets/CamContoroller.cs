@@ -47,7 +47,8 @@ public class CamContoroller : MonoBehaviour
 
         float sensitiveWheel = 30.0f;
         float sensitivePinch = 0.4f;
-        float sensitiveRotate = 2.0f;
+        //下を向いているときの回転感度を下げる
+        float sensitiveRotate = 2.0f *(95 - camera.transform.localEulerAngles.x) / 95;
 
         //回転移動
         //PC
@@ -92,6 +93,8 @@ public class CamContoroller : MonoBehaviour
         }
         
         //拡大・縮小
+        //高度に応じた感度調整
+        float sensitiveHeight = ((camera.transform.position.y - groundAltitude) / (267f - groundAltitude));
         //スクロールもしくはピンチでカメラの前後移動を行う
         //PC
         if (Input.touchCount == 0)
@@ -99,42 +102,42 @@ public class CamContoroller : MonoBehaviour
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             //カメラの前後移動
             //地面にめり込まない&離れすぎないように移動を制限
-            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel > groundAltitude)
+            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel * sensitiveHeight > groundAltitude)
             {
-                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
+                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel * sensitiveHeight;
             }
             else
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, groundAltitude, camera.transform.position.z);
             }
-            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel < topAltitude)
+            if (camera.transform.position.y + camera.transform.forward.y * scroll * sensitiveWheel * sensitiveHeight < topAltitude)
             {
-                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
+                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel * sensitiveHeight;
             }
             else
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, topAltitude, camera.transform.position.z);
             }
             // xが-300~800, zが-600~400の範囲内で移動
-            if (camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel > -300 && camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel < 800 && camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel > -600 && camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel < 400)
+            if (camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel * sensitiveHeight > -300 && camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel * sensitiveHeight < 800 && camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel > -600 && camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel < 400)
             {
-                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel;
+                camera.transform.position += camera.transform.forward * scroll * sensitiveWheel * sensitiveHeight;
             }
             else
             {
-                if (camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel < -300)
+                if (camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel * sensitiveHeight < -300)
                 {
                     camera.transform.position = new Vector3(-300, camera.transform.position.y, camera.transform.position.z);
                 }
-                if (camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel > 800)
+                if (camera.transform.position.x + camera.transform.forward.x * scroll * sensitiveWheel * sensitiveHeight > 800)
                 {
                     camera.transform.position = new Vector3(800, camera.transform.position.y, camera.transform.position.z);
                 }
-                if (camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel < -600)
+                if (camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel * sensitiveHeight < -600)
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, -600);
                 }
-                if (camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel > 400)
+                if (camera.transform.position.z + camera.transform.forward.z * scroll * sensitiveWheel * sensitiveHeight > 400)
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, 400);
                 }
@@ -159,42 +162,42 @@ public class CamContoroller : MonoBehaviour
             }
             //カメラの前後移動
             //地面にめり込まない&離れすぎないように移動を制限
-            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch > groundAltitude)
+            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch * sensitiveHeight > groundAltitude)
             {
-                camera.transform.position += camera.transform.forward * pinch * sensitivePinch;
+                camera.transform.position += camera.transform.forward * pinch * sensitivePinch * sensitiveHeight;
             }
             else
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, groundAltitude, camera.transform.position.z);
             }
-            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch < topAltitude)
+            if (camera.transform.position.y + camera.transform.forward.y * pinch * sensitivePinch * sensitiveHeight < topAltitude)
             {
-                camera.transform.position += camera.transform.forward * pinch * sensitivePinch;
+                camera.transform.position += camera.transform.forward * pinch * sensitivePinch * sensitiveHeight;
             }
             else
             {
                 camera.transform.position = new Vector3(camera.transform.position.x, topAltitude, camera.transform.position.z);
             }
             // xが-300~800, zが-600~400の範囲内で移動
-            if (camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch > -300 && camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch < 800 && camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch > -600 && camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch < 400)
+            if (camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch * sensitiveHeight > -300 && camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch * sensitiveHeight < 800 && camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch * sensitiveHeight > -600 && camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch * sensitiveHeight < 400)
             {
-                camera.transform.position += camera.transform.forward * pinch * sensitivePinch;
+                camera.transform.position += camera.transform.forward * pinch * sensitivePinch * sensitiveHeight;
             }
             else
             {
-                if (camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch < -300)
+                if (camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch * sensitiveHeight < -300)
                 {
                     camera.transform.position = new Vector3(-300, camera.transform.position.y, camera.transform.position.z);
                 }
-                if (camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch > 800)
+                if (camera.transform.position.x + camera.transform.forward.x * pinch * sensitivePinch * sensitiveHeight > 800)
                 {
                     camera.transform.position = new Vector3(800, camera.transform.position.y, camera.transform.position.z);
                 }
-                if (camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch < -600)
+                if (camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch * sensitiveHeight < -600)
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, -600);
                 }
-                if (camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch > 400)
+                if (camera.transform.position.z + camera.transform.forward.z * pinch * sensitivePinch * sensitiveHeight > 400)
                 {
                     camera.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, 400);
                 }

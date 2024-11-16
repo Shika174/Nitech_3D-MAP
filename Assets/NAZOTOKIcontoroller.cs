@@ -175,7 +175,7 @@ public class NAZOTOKIcontoroller : MonoBehaviour
             {
                 countA = 1;
             }
-            else if (hit.collider == targetColliderA1 || hit.collider == targetColliderA2 && countA == 1)
+            else if ((hit.collider == targetColliderA1 || hit.collider == targetColliderA2) && countA == 1)
             {
                 countA++;
             }
@@ -197,7 +197,7 @@ public class NAZOTOKIcontoroller : MonoBehaviour
             {
                 countB++;
             }
-            else if (hit.collider == targetColliderB3 || hit.collider == targetColliderB4 && countB == 2)
+            else if ((hit.collider == targetColliderB3 || hit.collider == targetColliderB4) && countB == 2)
             {
                 countB++;
             }

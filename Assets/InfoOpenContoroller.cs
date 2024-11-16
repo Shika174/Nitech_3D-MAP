@@ -19,10 +19,10 @@ public class InfoOpenContoroller : MonoBehaviour
         // ボタンのクリックイベントにメソッドを登録
         infoButton.onClick.AddListener(ShowImage);
 
-        //初期状態では画像を非表示にする
+        //初期状態では画像を表示する
         if (infoImage != null)
         {
-            infoImage.SetActive(false); // 画像を非表示
+            infoImage.SetActive(true); // 画像を表示
         }
         else
         {
