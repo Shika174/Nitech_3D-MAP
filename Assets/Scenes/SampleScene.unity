@@ -687,6 +687,7 @@ MonoBehaviour:
   closeButton: {fileID: 428855593}
   URLButton: {fileID: 1520147640}
   url: https://www.koudaisai.com/project/vr-coaster/
+  defaultVisible: 0
 --- !u!114 &85152977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,6 +1033,101 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5950597282340971644, guid: 94353d640092aeb44ade6d866b917758, type: 3}
+--- !u!1001 &136545688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      propertyPath: m_Name
+      value: Player 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+    - {fileID: -8700617353114198275, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 146699997}
+  m_SourcePrefab: {fileID: 100100000, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+--- !u!1 &146699994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 59acaeaaebe902143803ca81d0f6a50d, type: 3}
+  m_PrefabInstance: {fileID: 136545688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &146699997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146699994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1b215d077e3d4cb6c89b37454b209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151592410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,6 +1184,7 @@ MonoBehaviour:
   closeButton: {fileID: 520190136}
   URLButton: {fileID: 2120115910}
   url: https://www.koudaisai.com/project/booth/
+  defaultVisible: 0
 --- !u!114 &151592413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1729,6 +1826,7 @@ MonoBehaviour:
   closeButton: {fileID: 48308902}
   URLButton: {fileID: 1513498913}
   url: https://www.koudaisai.com/project/haunted-house/
+  defaultVisible: 0
 --- !u!114 &461438624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,6 +2187,7 @@ MonoBehaviour:
   closeButton: {fileID: 919094151}
   URLButton: {fileID: 1807000902}
   url: https://www.koudaisai.com/project/vs-dealer/
+  defaultVisible: 0
 --- !u!114 &607315307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2277,6 +2376,7 @@ MonoBehaviour:
   closeButton: {fileID: 1460519798}
   URLButton: {fileID: 1871696818}
   url: https://www.koudaisai.com/project/mogi1/
+  defaultVisible: 0
 --- !u!114 &716162772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2360,99 +2460,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messageImage: {fileID: 0}
---- !u!1001 &782628375
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 33472
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 33472
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 33472
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 70.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 17.68
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -36.4
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 782628377}
-  m_SourcePrefab: {fileID: 100100000, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
---- !u!1 &782628376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6cf0517658b8fe0428567fbd132f96bd, type: 3}
-  m_PrefabInstance: {fileID: 782628375}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &782628377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782628376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5e1b215d077e3d4cb6c89b37454b209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &796137017
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4157,7 @@ MonoBehaviour:
   closeButton: {fileID: 1342878925}
   URLButton: {fileID: 195564579}
   url: https://www.koudaisai.com/project/gakuseiboshu/
+  defaultVisible: 0
 --- !u!114 &1268710773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4930,6 +4938,7 @@ MonoBehaviour:
   closeButton: {fileID: 1144773246}
   URLButton: {fileID: 0}
   url: https://www.koudaisai.com/
+  defaultVisible: 0
 --- !u!222 &1454048789
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5332,6 +5341,7 @@ MonoBehaviour:
   closeButton: {fileID: 439647014}
   URLButton: {fileID: 0}
   url: https://www.koudaisai.com/
+  defaultVisible: 0
 --- !u!222 &1501995928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5416,6 +5426,7 @@ MonoBehaviour:
   closeButton: {fileID: 1383171100}
   URLButton: {fileID: 829757454}
   url: https://www.koudaisai.com/project/kids-park/
+  defaultVisible: 0
 --- !u!114 &1503222774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6754,6 +6765,7 @@ MonoBehaviour:
   closeButton: {fileID: 814749817}
   URLButton: {fileID: 0}
   url: https://www.koudaisai.com/
+  defaultVisible: 1
 --- !u!114 &1862886194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7145,6 +7157,7 @@ MonoBehaviour:
   closeButton: {fileID: 1633597412}
   URLButton: {fileID: 1716629303}
   url: https://www.koudaisai.com/project/room-riddles/
+  defaultVisible: 0
 --- !u!114 &1937122747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7865,6 +7878,7 @@ MonoBehaviour:
   closeButton: {fileID: 1344277533}
   URLButton: {fileID: 544650500}
   url: https://www.koudaisai.com/project/laboratory-tour/
+  defaultVisible: 0
 --- !u!114 &2147164882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7929,4 +7943,4 @@ SceneRoots:
   - {fileID: 1297147066}
   - {fileID: 1848798648}
   - {fileID: 1193336682}
-  - {fileID: 782628375}
+  - {fileID: 136545688}

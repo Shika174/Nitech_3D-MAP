@@ -11,11 +11,16 @@ public class ModelController : MonoBehaviour
     private bool isMoving = false;
     private float moveSpeed = 5f; // 移動速度
     private float leap = 300f; // 移動量
+    float groundAltitude = 90f;
+    float topAltitude = 500f;
 
     void Update()
     {
         Camera camera = Camera.main;
         float Move_sensitive = -10.0f * ((float)Screen.width / (float)Screen.height);
+
+        //高度に応じた感度調整
+        float sensitiveHeight = ((camera.transform.position.y - groundAltitude) / (267f - groundAltitude));
 
         // PC操作
         if (Input.GetMouseButton(0) && Input.touchCount == 0)
@@ -23,8 +28,8 @@ public class ModelController : MonoBehaviour
             Vector3 cam_up = Vector3.Scale(camera.transform.up.normalized, new Vector3(1.0f, 0.0f, 1.0f));
             Vector3 cam_right = Vector3.Scale(camera.transform.right.normalized, new Vector3(1.0f, 0.0f, 1.0f));
 
-            float Move_X = Input.GetAxis("Mouse X") * Move_sensitive;
-            float Move_Y = Input.GetAxis("Mouse Y") * Move_sensitive;
+            float Move_X = Input.GetAxis("Mouse X") * Move_sensitive * sensitiveHeight;
+            float Move_Y = Input.GetAxis("Mouse Y") * Move_sensitive * sensitiveHeight;
             Vector3 Move = (cam_right * Move_X) + (cam_up * Move_Y);
 
             // 範囲内なら移動
@@ -66,7 +71,7 @@ public class ModelController : MonoBehaviour
                 if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
                 {
                     isMoving = false;
-                    targetPosition = transform.position + cam_up * leap;
+                    targetPosition = transform.position + cam_up * leap * sensitiveHeight;
                     isMoving = true;
                 }
                 else
@@ -87,7 +92,7 @@ public class ModelController : MonoBehaviour
                     {
                         transform.position = new Vector3(800, transform.position.y, transform.position.z);
                     }
-                targetPosition = transform.position + cam_up * leap;
+                targetPosition = transform.position + cam_up * leap * sensitiveHeight;
                 isMoving = true;
                 }
             }
@@ -109,7 +114,7 @@ public class ModelController : MonoBehaviour
                 if (transform.position.z > -600 && transform.position.z < 400 && transform.position.x > -300 && transform.position.x < 800)
                 {
                     isMoving = false;
-                    targetPosition = transform.position + cam_up * leap;
+                    targetPosition = transform.position + cam_up * leap * sensitiveHeight;
                     isMoving = true;
                 }
                 else
@@ -130,7 +135,7 @@ public class ModelController : MonoBehaviour
                     {
                         transform.position = new Vector3(800, transform.position.y, transform.position.z);
                     }
-                    targetPosition = transform.position + cam_up * leap;
+                    targetPosition = transform.position + cam_up * leap * sensitiveHeight;
                     isMoving = true;
                     }
                 }
@@ -146,7 +151,7 @@ public class ModelController : MonoBehaviour
 
             // 目標位置に到達したかどうかを確認
             
-            if (Vector3.Distance(transform.position, targetPosition) < 0.5f)
+            if (Vector3.Distance(transform.position, targetPosition) < 1.0f)
             {
                 transform.position = targetPosition;
                 isMoving = false;

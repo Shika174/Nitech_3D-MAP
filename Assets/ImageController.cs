@@ -9,6 +9,7 @@ public class ImageController : MonoBehaviour
     public Button URLButton;
     private Image imageComponent; // Imageコンポーネントを参照するための変数
     public string url = "https://www.koudaisai.com/";//""の中には開きたいWebページのURLを入力します
+    public bool defaultVisible = false; // 初期表示時に表示するかどうか
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,9 @@ public class ImageController : MonoBehaviour
 
         // 位置を中央に調整
         imageRect.anchoredPosition = Vector2.zero; // 中央に配置
+
+        // 画像の初期表示を設定
+        gameObject.SetActive(defaultVisible);
     }
 
     void Update()
